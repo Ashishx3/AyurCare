@@ -19,7 +19,7 @@ export default function Sidebar() {
           <a
             key={item.name}
             href={item.href}
-            className="flex items-center gap-3 p-2 rounded-lg text-white hover:bg-purple-500/30 transition"
+            className="flex items-center gap-3 p-2 rounded-lg text-black hover:bg-purple-500/30 transition"
           >
             <item.icon className="w-5 h-5" />
             {item.name}

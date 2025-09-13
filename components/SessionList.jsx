@@ -1,7 +1,4 @@
-"use client"
-import { useState } from "react";
-
-export default function SessionList({ sessions, updateStatus }) {
+export default function SessionList({ sessions = [], updateStatus }) {
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 border border-blue-100">
       <h2 className="text-lg font-semibold text-blue-800 mb-4">Upcoming Sessions</h2>
