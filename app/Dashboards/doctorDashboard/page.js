@@ -3,8 +3,9 @@ import Topbar from "@/components/Topbar";
 import StatsCard from "@/components/StatsCard";
 import SessionList from "@/components/SessionList";
 import PatientProgress from "@/components/PatientProgress";
-import QuickActions from "@/components/QuickActions";
-import AssistantWidget from "@/components/AssistantWidget";
+import QuickActions from "@/components/quickActions";
+// import AssistantWidget from "@/components/AssistantWidget";
+import AssistantWidget from "@/components/Assistantwidget";
 import { Users, Activity, Clock, Percent } from "lucide-react";
 
 export default function Dashboard() {
