@@ -3,9 +3,9 @@ import Topbar from "@/components/Topbar";
 import StatsCard from "@/components/StatsCard";
 import SessionList from "@/components/SessionList";
 import PatientProgress from "@/components/PatientProgress";
-import QuickActions from "@/components/quickActions";
+// import QuickActions from "@/components/quickActions";
 // import AssistantWidget from "@/components/AssistantWidget";
-import AssistantWidget from "@/components/Assistantwidget";
+// import AssistantWidget from "@/components/Assistantwidget";
 import { Users, Activity, Clock, Percent } from "lucide-react";
 
 export default function Dashboard() {
@@ -26,12 +26,12 @@ export default function Dashboard() {
 
           <SessionList />
           <PatientProgress />
-          <QuickActions />
+          {/* <QuickActions /> */}
         </div>
 
         {/* Right Section */}
         <div className="space-y-6">
-          <AssistantWidget/>
+          {/* <AssistantWidget/>/ */}
         </div>
       </main>
     </div>
