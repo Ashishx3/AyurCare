@@ -30,7 +30,7 @@ export default function Dashboard() {
 
         {/* Right Section */}
         <div className="space-y-6">
-          <AssistantWidget />
+          <AssistantWidget/>
         </div>
       </main>
     </div>
