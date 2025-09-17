@@ -1,0 +1,21 @@
+.lang {
+    background-color: rgb(246, 246, 246);
+    color: #9810fa;
+    padding: 4px;
+    border: 1px solid #b450fc;
+    border-radius: 6px;
+    width: 50px;
+margin:14px ;
+    position: fixed; /* stays visible even when scrolling */
+    bottom: 0;       /* aligns to the bottom */
+    left: 0;
+    z-index: 9999;        /* aligns to the left */
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}

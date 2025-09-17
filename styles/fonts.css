@@ -1,0 +1,32 @@
+/* Import from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', 'Poppins', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 
+               'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Lora', 'Merriweather', Georgia, 'Times New Roman', serif;
+}
+
+body {
+
+  font-family: var(--font-sans);
+  
+  overflow-x: hidden;
+
+}
+
+.HeadingPanch{
+    font-family: 'Poppins','Roboto', system-ui, -apple-system, BlinkMacSystemFont, 
+               'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+} */
+/* 
+p, span, li {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+} */
+
+

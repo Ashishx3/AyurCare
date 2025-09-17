@@ -1,0 +1,70 @@
+//   "use client";
+//   import { useState } from "react";
+//   import Header from "@/components/PatientComponents/Header";
+//   import DoshaQuiz from "@/components/PatientComponents/DoshaQuiz";
+//   import AppointmentForm from "@/components/AppointmentForm";
+//   import AppointmentsList from "@/components/PatientComponents/AppointmentsList";
+//   import NotificationsPanel from "@/components/PatientComponents/NotificationsPanel";
+//   import Chatbot from "@/components/PatientComponents/Chatbot";
+
+
+
+
+
+//   export default function PatientDashboard() {
+ 
+//     const [notifications] = useState([
+//       { id: 1, text: "Reminder: Dr. Sharma appointment tomorrow at 10 AM" },
+//       { id: 2, text: "✨ New health tips added for your Dosha type" },
+//       { id: 3, text: "📩 Lab reports from last visit are now available" },
+//     ]);
+
+//     const [showQuiz, setShowQuiz] = useState(true);
+//     const [showForm, setShowForm] = useState(false);
+
+
+//     const handleCancel = (id) => {
+//       setAppointments((prev) =>
+//         prev.map((appt) =>
+//           appt.id === id ? { ...appt, status: "Cancelled" } : appt
+//         )
+//       );
+//     };
+
+//     return (
+//       <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 flex flex-col font-sans">
+//         <Header />
+
+//         {showQuiz && <DoshaQuiz onClose={() => setShowQuiz(false)} />}
+
+//         <main className="flex flex-1 p-8 gap-8">
+//           <div className="flex-1 space-y-6">
+//             <div className="bg-white/60 backdrop-blur-lg shadow-xl rounded-3xl p-6 border hover:shadow-2xl transition">
+//               <h2 className="text-xl font-semibold mb-5 text-slate-800">
+//                 Upcoming Appointments
+//               </h2>
+//               <AppointmentsList onCancel={handleCancel} />
+//             </div>
+//           </div>
+//           <NotificationsPanel notifications={notifications} />
+//         </main>
+
+//         <button
+//           onClick={() => setShowForm(true)}
+//           className="fixed bottom-24 right-8 bg-gradient-to-r from-pink-500 to-indigo-600 text-white px-5 py-4 rounded-full shadow-lg flex items-center gap-2 hover:scale-105 transition"
+//         >
+//           Book Appointment
+//         </button>
+
+//         {showForm && (
+//           <AppointmentForm
+//             onClose={() => setShowForm(false)}
+            
+//           />
+//         )}
+
+//         <Chatbot onTakeQuiz={() => setShowQuiz(true)} />
+//       </div>
+//     );
+//   }
+
