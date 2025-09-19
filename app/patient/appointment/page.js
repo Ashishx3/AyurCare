@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default function AppointmentPage() {
   return (
+    
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-50 via-white to-indigo-100">
       {/* Sticky Header */}
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">

@@ -1,42 +1,80 @@
-// components/Footer.jsx
-"use client"
-import { Heart, Leaf } from "lucide-react";
+"use client";
+
+import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-purple-600 to-fuchsia-700 text-white py-10 mt-20">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Logo + Name */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center shadow-md">
-            <Leaf className="text-white" size={20} />
+    <footer className="bg-white/70 backdrop-blur-lg border-t border-white/20 px-6 py-10 mt-20">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 text-slate-700">
+        {/* About */}
+        <div>
+          <h2 className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-pink-500 to-purple-600 bg-clip-text text-transparent mb-4">
+            🩺 Patient Portal
+          </h2>
+          <p className="text-sm leading-relaxed">
+            Your trusted portal for managing appointments, tracking health records, and connecting with doctors easily.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div>
+          <h3 className="font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="/patient/dashboard" className="hover:text-indigo-600 transition">
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link href="/patient/schedules" className="hover:text-indigo-600 transition">
+                Appointments
+              </Link>
+            </li>
+            <li>
+              <Link href="/patient/profile" className="hover:text-indigo-600 transition">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link href="/patient/settings" className="hover:text-indigo-600 transition">
+                Settings
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="font-semibold mb-4">Contact Us</h3>
+          <p className="text-sm">Email: support@patientportal.com</p>
+          <p className="text-sm mt-1">Phone: +91 9876543210</p>
+          <p className="text-sm mt-1">Address: 123 Health St, Wellness City</p>
+        </div>
+
+        {/* Socials */}
+        <div>
+          <h3 className="font-semibold mb-4">Follow Us</h3>
+          <div className="flex gap-4">
+            <Link href="#" className="hover:text-pink-500 transition">
+              <Facebook size={20} />
+            </Link>
+            <Link href="#" className="hover:text-pink-500 transition">
+              <Twitter size={20} />
+            </Link>
+            <Link href="#" className="hover:text-pink-500 transition">
+              <Instagram size={20} />
+            </Link>
+            <Link href="#" className="hover:text-pink-500 transition">
+              <Linkedin size={20} />
+            </Link>
           </div>
-          <span className="font-semibold text-lg tracking-wide">
-            AyurCare
-          </span>
         </div>
+      </div>
 
-        {/* Links */}
-        <div className="flex flex-wrap gap-6 text-sm font-medium">
-          <a href="/" className="hover:text-purple-200 transition-colors">
-            Home
-          </a>
-          <a href="/about" className="hover:text-purple-200 transition-colors">
-            About
-          </a>
-          <a href="/services" className="hover:text-purple-200 transition-colors">
-            Services
-          </a>
-          <a href="/contact" className="hover:text-purple-200 transition-colors">
-            Contact
-          </a>
-        </div>
-
-        {/* Copyright */}
-        <div className="text-sm text-purple-100 flex items-center gap-1">
-          © {new Date().getFullYear()} AyurCare · Built with
-          <Heart size={14} className="text-pink-300 inline-block ml-1" />
-        </div>
+      {/* Bottom */}
+      <div className="mt-10 text-center text-slate-500 text-sm">
+        &copy; {new Date().getFullYear()} Patient Portal. All rights reserved.
       </div>
     </footer>
   );
