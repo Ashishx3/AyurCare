@@ -65,7 +65,7 @@ const TestimonialCard = ({ testimonial }) => (
 
 const CommunitySection = () => (
   <section className="py-20 bg-gradient-to-b from-white via-purple-50 to-indigo-50">
-    <div className="container mx-auto px-6">
+    <div className=" mx-auto px-6">
       <h2 className="text-4xl font-extrabold text-center mb-14 bg-gradient-to-r from-purple-700 via-indigo-600 to-teal-500 bg-clip-text text-transparent drop-shadow-md">
         What Our Community Says
       </h2>

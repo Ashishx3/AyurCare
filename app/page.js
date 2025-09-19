@@ -1,3 +1,4 @@
+import DoshaShowcase from '@/components/AboutDosha'
 import Panchakarma from '@/components/AboutPanchakarma'
 
 import HeroSection from '@/components/HeroSection'
@@ -10,7 +11,10 @@ const Homepage = () => {
     <div className="flex flex-col w-screen min-h-screen bg-gradient-to-b">
     <Navbar/>
       <HeroSection />
+      
       <Panchakarma/>
+      <DoshaShowcase/>
+      
       <CommunitySection/>
       
     </div>

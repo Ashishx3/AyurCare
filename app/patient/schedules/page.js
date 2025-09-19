@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/PatientComponents/Header";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -12,6 +13,8 @@ const PatientAppointmentsPage = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div className="min-h-screen p-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <h1 className="text-3xl font-bold text-indigo-700 mb-8 text-center">
         My Appointments
@@ -58,6 +61,7 @@ const PatientAppointmentsPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
