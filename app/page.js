@@ -8,7 +8,7 @@ import React from 'react'
 const Homepage = () => {
   return (
     <div className="flex flex-col w-screen min-h-screen bg-gradient-to-b">
-      <Navbar />
+    <Navbar/>
       <HeroSection />
       <Panchakarma/>
       <CommunitySection/>

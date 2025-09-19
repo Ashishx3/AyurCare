@@ -45,10 +45,10 @@ export default function Navbar() {
             Login
           </Link>
           <Link
-            href="/signup"
+            href="/register"
             className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
           >
-            Sign Up
+            Register
           </Link>
         </div>
       </div>

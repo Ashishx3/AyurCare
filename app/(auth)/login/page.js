@@ -1,151 +1,118 @@
-"use client"
-import { useState, useEffect } from "react"
-import { useForm } from "react-hook-form"
-import { useSession, signIn, signOut } from "next-auth/react"
-import { FaGoogle } from "react-icons/fa"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { User, Stethoscope, Shield, LogIn } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import CubePopup from "@/components/LoadingCube"; // 👈 import
 
 export default function Login() {
-  const { data: session } = useSession()
-  const router = useRouter()
-  const [role, setRole] = useState("PATIENT") // default role
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState("User");
+  const [showPopup, setShowPopup] = useState(false); // 👈 state
+  const router = useRouter();
 
-  // Redirect based on role
-  useEffect(() => {
-    if (session) {
-      const timer = setTimeout(() => {
-        if (session.user.role === "DOCTOR") {
-          router.push("/doctor/dashboard")
-        } else {
-          router.push("/patient/dashboard")
-        }
-      }, 1500)
-      return () => clearTimeout(timer)
-    }
-  }, [session, router])
+  const profiles = [
+    { name: "User", icon: User },
+    { name: "Doctor", icon: Stethoscope },
+    { name: "Admin", icon: Shield },
+  ];
 
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setShowPopup(true); // 👈 popup dikhao
 
-  const onSubmit = async (data) => {
-    await signIn("credentials", {
-      email: data.email,
-      password: data.password,
-      role,
-      redirect: false,
-    })
-  }
-
-  // Random Ayurveda quotes
-  const [randomQuote, setRandomQuote] = useState("")
-  useEffect(() => {
-    const quotes = [
-      "Ayurveda is not just about adding years to life, but adding life to years.",
-      "Balance is the essence of health; Ayurveda teaches us how to find it.",
-      "Food is medicine, and lifestyle is therapy – that’s Ayurveda.",
-      "Health is harmony of body, mind, and spirit – Ayurveda aligns them all.",
-      "Ancient roots, modern healing – that’s the power of Ayurveda."
-    ]
-    setRandomQuote(quotes[Math.floor(Math.random() * quotes.length)])
-  }, [])
+    setTimeout(() => {
+      setShowPopup(false); // hide after 2 sec
+      if (selectedProfile === "User") {
+        router.push("/patient/dashboard");
+      } else if (selectedProfile === "Doctor") {
+        router.push("/doctor/dashboard");
+      } else {
+        router.push("/admin/dashboard");
+      }
+    }, 2000);
+  };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-green-100 via-white to-green-200 px-6">
-      {/* Left side */}
-      <div className="flex-1 flex flex-col justify-center items-center p-8">
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0, transition: { duration: 0.9 } }}
-          className="max-w-md text-center"
-        >
-          <h1 className="text-5xl font-extrabold mb-6 text-green-800">AyurCare Login</h1>
-          <p className="text-lg text-gray-700 mb-6 italic">“{randomQuote}”</p>
-        </motion.div>
-      </div>
+    <>
+      <Navbar />
+      {showPopup && <CubePopup />} {/* 👈 popup render */}
 
-      {/* Right side */}
-      <div className="flex-1 flex items-center justify-center p-8">
-        <motion.div
-          className="bg-white/70 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl p-10 w-full max-w-md text-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }}
-        >
-          {session ? (
-            <>
-              <h2 className="text-2xl font-bold mb-4 text-green-800">Welcome, {session.user.name}</h2>
-              <p className="text-gray-600 text-sm mb-6">Redirecting to dashboard...</p>
-              <motion.button
-                onClick={() => signOut()}
-                className="cursor-pointer bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-lg font-semibold shadow-md"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Sign Out
-              </motion.button>
-            </>
-          ) : (
-            <>
-              <h2 className="text-3xl font-bold mb-6 text-green-900">Sign In</h2>
-              <p className="text-gray-600 mb-6">Login with email or Google</p>
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-100">
+        <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-md w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-purple-100"
+          >
+            <h1 className="text-3xl font-bold text-gray-800 text-center mb-8">
+              Login to AyurCare
+            </h1>
 
-              {/* Credentials Login */}
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 mb-6">
-                <div className="text-left">
-                  <label className="block text-gray-700 font-medium mb-1">Email</label>
-                  <input
-                    type="email"
-                    {...register("email", { required: "Email is required" })}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-                </div>
-
-                <div className="text-left">
-                  <label className="block text-gray-700 font-medium mb-1">Password</label>
-                  <input
-                    type="password"
-                    {...register("password", { required: "Password is required" })}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                  {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
-                </div>
-
-                {/* Role Selector */}
-                <div className="text-left">
-                  <label className="block text-gray-700 font-medium mb-1">Role</label>
-                  <select
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+            {/* Profile Tabs */}
+            <div className="flex justify-center mb-8">
+              <div className="flex space-x-2 bg-gray-100 rounded-xl p-1">
+                {profiles.map((profile) => (
+                  <motion.button
+                    key={profile.name}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedProfile(profile.name)}
+                    className={`px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors ${
+                      selectedProfile === profile.name
+                        ? "bg-gradient-to-r from-purple-600 to-indigo-700 text-white"
+                        : "text-gray-600 hover:bg-purple-50"
+                    }`}
                   >
-                    <option value="PATIENT">Patient</option>
-                    <option value="DOCTOR">Doctor</option>
-                  </select>
-                </div>
+                    <profile.icon className="w-5 h-5" />
+                    {profile.name}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
 
-                <motion.button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2 rounded-lg font-medium shadow-md hover:from-green-700 hover:to-green-800 transition"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Sign in with Email
-                </motion.button>
-              </form>
+            {/* Login Form */}
+            <form onSubmit={handleLogin}>
+              <div className="mb-6">
+                <label className="block text-gray-600 font-medium mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder={`Enter ${selectedProfile.toLowerCase()} email`}
+                  className="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-purple-500 transition-colors"
+                  required
+                />
+              </div>
 
-              {/* Google Sign-In */}
+              <div className="mb-8">
+                <label className="block text-gray-600 font-medium mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter password"
+                  className="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-purple-500 transition-colors"
+                  required
+                  minLength={3}
+                />
+              </div>
+
               <motion.button
-                onClick={() => signIn("google")}
-                className="w-full flex items-center justify-center gap-2 bg-red-500 text-white py-2 px-4 rounded-lg font-medium shadow-md hover:bg-red-600 transition"
+                type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all flex items-center justify-center gap-2"
               >
-                <FaGoogle /> Sign in with Google
+                <LogIn className="w-5 h-5" />
+                Login as {selectedProfile}
               </motion.button>
-            </>
-          )}
-        </motion.div>
+            </form>
+          </motion.div>
+        </section>
       </div>
-    </div>
-  )
+    </>
+  );
 }

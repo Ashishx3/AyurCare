@@ -1,9 +1,10 @@
 "use client";
-const { configureStore } = require("@reduxjs/toolkit");
-const appointmentsReducer = require("./slice").default;
+import { configureStore } from "@reduxjs/toolkit";
+import { appointmentsReducer, signupReducer } from "./slice";
 
 export const store = configureStore({
   reducer: {
-    appointments: appointmentsReducer   // ✅ now your slice is registered
-  }
+    appointments: appointmentsReducer,
+    users: signupReducer, // match slice name
+  },
 });

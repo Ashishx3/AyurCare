@@ -1,45 +1,59 @@
 "use client";
-import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Header from "@/components/DoctorComponents/Header";
-import NotificationsPanel from "@/components/DoctorComponents/NotificationsPanel";
-import AppointmentsList from "@/components/PatientComponents/AppointmentsList";
+import FeatureCard from "@/ui/FeatureCard";
 
 export default function DoctorDashboard() {
-  const { data: session } = useSession();
-  const handleCancel = (id) => {
-      setAppointments((prev) =>
-        prev.map((appt) =>
-          appt.id === id ? { ...appt, status: "Cancelled" } : appt
-        )
-      );
-    };
+  const router = useRouter();
 
+  const handleAppointments = () => router.push("/doctor/appointments");
+  const handleSchedule = () => router.push("/doctor/schedules");
+  const handlePatients = () => router.push("/doctor/patients");
+  const handleFeedback = () => router.push("/doctor/feedback");
 
-  const [notifications] = useState([
-    { id: 1, text: "Reminder: Tomorrow's appointments need confirmation" },
-    { id: 2, text: "New patient requests received" },
-  ]);
-
-  
- 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 flex flex-col font-sans">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-100 via-indigo-50 to-indigo-200">
+      {/* Sticky Header */}
+      <div className="sticky top-0 z-50 bg-white/10 backdrop-blur-xl shadow-lg border-b border-white/30">
+        <Header />
+      </div>
 
-      <main className="flex flex-1 p-8 gap-8">
-        <div className="flex-1 space-y-6">
-          <div className="bg-white/60 backdrop-blur-lg shadow-xl rounded-3xl p-6 border hover:shadow-2xl transition">
-            <h2 className="text-xl font-semibold mb-5 text-slate-800">
-              Appointments
-            </h2>
-           
-            <AppointmentsList onCancel={handleCancel} />
-            
-          </div>
+      {/* Main Content */}
+      <main className="flex flex-col gap-10 p-8">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-center  bg-clip-text text-black animate-text">
+          Welcome, Doctor!
+        </h1>
+
+        <div className="flex items-center justify-center flex-wrap gap-8">
+          <FeatureCard
+            imgSrc="/doctordashboard/appointments.png"
+            title="My Appointments"
+            onClick={handleAppointments}
+            description="View all upcoming patient appointments"
+            color="purple"
+            glass
+          />
+
+          <FeatureCard
+            imgSrc="/doctordashboard/schedule.png"
+            title="Manage Schedule"
+            onClick={handleSchedule}
+            description="Set or update your consultation and therapy timings"
+            color="indigo"
+            glass
+          />
+
+         
+
+          <FeatureCard
+            imgSrc="/doctordashboard/feedback.png"
+            title="Feedback"
+            onClick={handleFeedback}
+            description="Check feedback from patients to improve service"
+            color="rose"
+            glass
+          />
         </div>
-
-        <NotificationsPanel notifications={notifications} />
       </main>
     </div>
   );
