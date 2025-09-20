@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import Header from "@/components/PatientComponents/Header";
 import FeatureCard from "@/ui/FeatureCard";
+import Footer from "@/components/footer";
 
 export default function PatientDashboard() {
   const router = useRouter();
@@ -170,6 +171,8 @@ export default function PatientDashboard() {
           🚨 SOS
         </button>
       </div>
+      <Footer/>
     </div>
+
   );
 }

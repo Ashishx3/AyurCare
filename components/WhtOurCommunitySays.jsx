@@ -9,7 +9,7 @@ const testimonials = [
     video: "/whtcommunity/first.mp4",
   },
   {
-    name: "Dr. Johnson",
+    name: "Dr. Pradeep Mishra (B.A.M.S, MD) ",
     rating: 5,
     text: "Amazing experience! The doctor was professional and truly caring throughout the process.",
     video: "https://www.w3schools.com/html/mov_bbb.mp4",

@@ -8,7 +8,11 @@ const PatientAppointmentsPage = () => {
 
   if (appointments.length === 0) {
     return (
+      <>
+   <Header/>
+
       <p className="text-center text-gray-500 mt-10">You have no appointments yet.</p>
+      </>
     );
   }
 

@@ -33,8 +33,8 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
           <Link href="/" className="hover:text-gray-900 transition">Home</Link>
           <Link href="/about" className="hover:text-gray-900 transition">About</Link>
-          <Link href="/services" className="hover:text-gray-900 transition">Services</Link>
-          <Link href="/contact" className="hover:text-gray-900 transition">Contact</Link>
+          <Link href="/services" className="hover:text-gray-900 transition">Emergency</Link>
+          <Link href="/contact" className="hover:text-gray-900 transition"></Link>
         </div>
 
         <div className="flex items-center space-x-4">

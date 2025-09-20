@@ -26,7 +26,7 @@ export default function DoctorDashboard() {
 
         <div className="flex items-center justify-center flex-wrap gap-8">
           <FeatureCard
-            imgSrc="/doctordashboard/appointments.png"
+            imgSrc="/doctordashboard/person.png"
             title="My Appointments"
             onClick={handleAppointments}
             description="View all upcoming patient appointments"

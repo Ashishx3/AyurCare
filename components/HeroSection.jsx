@@ -8,7 +8,8 @@ const HeroSection = () => {
 const router = useRouter(); 
 
   const handleDoshaQuiz=() => {
-    router.push("/AiDoshaQuiz")
+
+    router.push("/AddSymptoms")
 
   }
   const features = [
@@ -108,7 +109,8 @@ const router = useRouter();
       </div>
 
       {/* Lang / Leaf */}
-      <motion.div
+      {/* <motion.div
+
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.2, duration: 0.7 }}
@@ -116,7 +118,22 @@ const router = useRouter();
       >
         <FaLeaf className="text-green-500 animate-bounce" />
         <span className="font-medium">lang</span>
-      </motion.div>
+      </motion.div> */}
+      {/* Lang Button */}
+<motion.button
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 1.2, duration: 0.7 }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+  className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 
+             bg-gradient-to-r from-green-400 to-teal-500 text-white font-semibold 
+             rounded-full shadow-lg hover:shadow-xl transition"
+>
+  <FaLeaf className="animate-bounce" />
+  <span className="text-sm md:text-base">Lang</span>
+</motion.button>
+
     </section>
   );
 };

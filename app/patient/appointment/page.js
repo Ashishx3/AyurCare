@@ -1,6 +1,7 @@
 "use client";
 
 import AppointmentForm from "@/components/AppointmentForm";
+import Footer from "@/components/footer";
 import Header from "@/components/PatientComponents/Header";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -44,6 +45,7 @@ export default function AppointmentPage() {
           </div>
         </motion.div>
       </motion.div>
+      <Footer/>
     </div>
   );
 }

@@ -1,11 +1,15 @@
 "use client";
+import Header from "@/components/DoctorComponents/Header";
 import React from "react";
 import { useSelector } from "react-redux";
 
 export default function DoctorFeedback() {
-  const feedbacks = useSelector((state) => state.feedback.feedbackList); // <-- slice ke hisaab se change karo
+  const feedbacks = useSelector((state) => state.feedback.feedbacks); // <-- slice ke hisaab se change karo
 
   return (
+
+    <>
+    <Header/>
     <div className="min-h-screen p-8 bg-gray-50">
       <h1 className="text-3xl font-bold text-purple-700 mb-6">
         Patient Feedback
@@ -31,5 +35,6 @@ export default function DoctorFeedback() {
         <p className="text-gray-500 italic">No feedback yet.</p>
       )}
     </div>
+    </>
   );
 }
