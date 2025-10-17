@@ -12,6 +12,7 @@ export default function PatientDashboard() {
   const handleSchedule = () => router.push("/patient/schedules");
   const handleFeedback = () => router.push("/patient/Feedback");
   const handleWellness = () => router.push("/patient/Wellness");
+  
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-100 via-purple-50 to-indigo-200">
@@ -59,6 +60,7 @@ export default function PatientDashboard() {
             description="Share your experience and help us improve"
             color="rose"
           />
+          
         </div>
 
         {/* Daily Wellness Tip */}
