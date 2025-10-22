@@ -1,7 +1,7 @@
 "use client";
 
 import AppointmentForm from "@/components/AppointmentForm";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import Header from "@/components/PatientComponents/Header";
 import { motion } from "framer-motion";
 import Image from "next/image";
