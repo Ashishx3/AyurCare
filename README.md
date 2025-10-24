@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🩺 2. AyurCare — AI-Powered Patient Management & Therapy Scheduler
 
-## Getting Started
 
-First, run the development server:
+🌐 Live: https://ayurcare01.vercel.app
+💻 GitHub: https://github.com/Ashishx3/AyurCare
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+AyurCare is a healthcare management software designed to streamline patient handling, therapy scheduling, and session tracking. Integrated with AI-driven insights, AyurCare enables personalized Ayurvedic treatment planning and real-time therapy notifications — built for SIH-level innovation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚙️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Next.js: Server-side rendering and routing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+React: Component-based UI
 
-## Learn More
+Tailwind CSS: Fast, responsive styling
 
-To learn more about Next.js, take a look at the following resources:
+Framer Motion: Smooth UI animations and transitions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Custom REST APIs: For patient, session, and therapist management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🌟 Features
 
-## Deploy on Vercel
+Secure patient data management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+AI recommendations for treatment plans
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Therapy and session scheduler with notifications
+
+Modern, responsive, and minimal dashboard
+
+Admin and practitioner modes
